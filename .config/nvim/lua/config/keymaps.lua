@@ -7,6 +7,8 @@ vim.g.mapleader = " "
 local keymap = vim.keymap -- for conciseness
 
 -- ToggleTerm
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
+vim.keymap.set("t", "<C-w><C-q>", "<Cmd>ToggleTerm<CR>", { desc = "Exit terminal" })
 keymap.set("n", "<leader>t", "ToggleTerm", { noremap = true, desc = "ToggleTerm" })
 keymap.set("n", "<leader>tt", ":ToggleTerm<cr>", { noremap = true, desc = "Toggle Terminal (default)" })
 keymap.set("n", "<leader>tf", ":ToggleTerm direction=float<cr>", { noremap = true, desc = "Toggle Terminal (float)" })
