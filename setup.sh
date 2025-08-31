@@ -12,6 +12,7 @@ function init_setup() {
 }
 
 function install_basics() {
+  echo "--------------------- Installing COre utilities ------------------------------"
   sudo apt update
 
   sudo apt install python3 ninja-build cmake -y
@@ -20,6 +21,7 @@ function install_basics() {
 }
 
 function install_neovim() {
+  echo "--------------------- Installing Neovim ------------------------------"
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz &&
     tar xzf nvim-linux64.tar.gz &&
     sudo mv nvim-linux64 /opt/ &&
@@ -29,6 +31,7 @@ function install_neovim() {
 }
 
 function install_lazygit() {
+  echo "--------------------- Installing Lazygit ------------------------------"
   curl -LO https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_$(uname -s)_$(uname -m).tar.gz &&
     tar xf lazygit_$(uname -s)_$(uname -m).tar.gz lazygit &&
     sudo install lazygit /usr/local/bin &&
@@ -37,6 +40,8 @@ function install_lazygit() {
 }
 
 function install_languages() {
+  echo "--------------------- Installing programming languages ------------------------------"
+
   # C++
   sudo apt install -y build-essential clang gcc g++ gdb
 
