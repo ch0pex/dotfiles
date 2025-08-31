@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+gui:
+  scrollHeight: 10
+  expandFocusedSidePanel: true
+  showNumstatInFilesView: true
+  showRandomTip: false
+  showRootItemInFileTree: false
+  showCommandLog: false
+  nerdFontsVersion: "3"
+
+git:
+  paging:
+    externalDiffCommand: difft --display=inline --color=always
+
+os:
+  editPreset: "nvim-remote"
+
