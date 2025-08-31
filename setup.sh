@@ -1,18 +1,21 @@
 #!/usr/bin/bash
 
-function init_setup() {
-  cp -r .tmux.conf .bashrc ~ 2>/dev/null
+USER=$1
+HOME=/home/${USER}
 
-  cd ~
+function init_setup() {
+  sudo cp -r .tmux.conf .bashrc .config/ ${HOME} 2>/dev/null
+
+  cd ${HOME} 
   echo "Moving home $(pwd)"
 
-  tmux source-file ~/.tmux.conf 2>/dev/null
-  source ~/.bashrc
+  tmux source-file ${HOME}/.tmux.conf 2>/dev/null
+  source ${HOME}/.bashrc
   return 0
 }
 
 function install_basics() {
-  echo "--------------------- Installing COre utilities ------------------------------"
+  echo "--------------------- Installing Core utilities ------------------------------"
   sudo apt update
 
   sudo apt install python3 ninja-build cmake -y
@@ -22,20 +25,28 @@ function install_basics() {
 
 function install_neovim() {
   echo "--------------------- Installing Neovim ------------------------------"
-  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz &&
-    tar xzf nvim-linux64.tar.gz &&
-    sudo mv nvim-linux64 /opt/ &&
-    sudo ln -sf /opt/nvim-linux64/bin/nvim /usr/local/bin/nvim &&
-    nvim --version
-  return 0
-}
+  mkdir downloads/
+  cd downloads/
+    if command -v nvim &> /dev/null; then
 
-function install_lazygit() {
+  curl -LO "https://github.com/neovim/neovim/releases/download/v0.11.4/nvim-linux-x86_64.tar.gz" &&
+    tar xvf nvim-linux-x86_64.tar.gz &&
+    mv cp nvim-linux-x86_64/bin/nvim /usr/bin/
+    nvim --version
+    fi
+
+    
   echo "--------------------- Installing Lazygit ------------------------------"
-  curl -LO https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_$(uname -s)_$(uname -m).tar.gz &&
-    tar xf lazygit_$(uname -s)_$(uname -m).tar.gz lazygit &&
-    sudo install lazygit /usr/local/bin &&
+    if command -v lazygit &> /dev/null; then
+  curl -LO "https://github.com/jesseduffield/lazygit/releases/download/v0.54.2/lazygit_0.54.2_linux_x86_64.tar.gz"
+    tar xfv "lazygit_0.54.2_linux_x86_64.tar.gz" &&
+	mv lazygit /usr/bin && 
     lazygit --version
+
+    fi
+  cd ..
+  rm -rf downloads/
+
   return 0
 }
 
@@ -43,7 +54,7 @@ function install_languages() {
   echo "--------------------- Installing programming languages ------------------------------"
 
   # C++
-  sudo apt install -y build-essential clang gcc g++ gdb
+  sudo apt install -y clang gcc g++ gdb
 
   # Go
   sudo rm -rf /usr/local/go
@@ -56,7 +67,5 @@ function install_languages() {
   return 0
 }
 
-install_basics
-install_neovim
-install_lazygit
-install_languages
+init_setup
+
