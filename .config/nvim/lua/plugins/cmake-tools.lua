@@ -71,8 +71,7 @@ return {
 
       cmake.setup({
         cmake_command = "cmake",
-        ctest_command = "ctest -j",
-        cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" },
+        ctest_command = "ctest",
         cmake_build_options = {},
         cmake_dap_configuration = {
           name = "cpp",
@@ -99,7 +98,7 @@ return {
           },
         },
         cmake_runner = { -- runner to use
-          name = "quickfix", -- name of the runner
+          name = "toggleterm", -- name of the runner
           opts = {}, -- the options the runner will get, possible values depend on the runner type. See `default_opts` for possible values.
 
           default_opts = { -- a list of default and possible values for runners
@@ -109,7 +108,7 @@ return {
 
               size = 90,
               encoding = "utf-8",
-              auto_close_when_success = true, -- typically, you can use it with the "always" option; it will auto-close the quickfix buffer if the execution is successful.
+              -- auto_close_when_success = true, -- typically, you can use it with the "always" option; it will auto-close the quickfix buffer if the execution is successful.
             },
           },
         },
