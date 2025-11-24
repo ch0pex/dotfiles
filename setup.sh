@@ -27,7 +27,7 @@ install_packages() {
     apt install -y python3 ninja-build cmake ripgrep unzip curl git build-essential gettext lua5.1 fish wget tar pipx
     ;;
   dnf | yum)
-    $PKG_MANAGER install -y python3 ninja-build cmake ripgrep unzip curl git make gettext lua fish wget tar tmux pipx
+    $PKG_MANAGER install -y python3 ninja-build cmake ripgrep unzip curl git make gettext lua fish wget tar tmux pipx gawk
     ;;
 
   pacman)
