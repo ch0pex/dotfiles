@@ -27,7 +27,7 @@ install_packages() {
     apt install -y python3 ninja-build cmake ripgrep unzip curl git build-essential gettext lua5.1 fish wget tar
     ;;
   dnf | yum)
-    $PKG_MANAGER install -y python3 ninja-build cmake ripgrep unzip curl git gcc gcc-c++ make gettext lua fish wget tar
+    $PKG_MANAGER install -y python3 ninja-build cmake ripgrep unzip curl git make gettext lua fish wget tar tmux
     ;;
 
   pacman)
@@ -81,10 +81,10 @@ install_languages() {
   echo "--------------------- Installing programming languages ------------------------------"
   case "$PKG_MANAGER" in
   apt)
-    apt install -y clang gcc g++ gdb
+    apt install -y clang gcc g++ mingw-w64
     ;;
   dnf | yum)
-    $PKG_MANAGER install -y clang gcc gcc-c++ gdb
+    $PKG_MANAGER install -y clang gcc gcc-c++ gdb mingw64-gcc mingw64-gcc-c++ mingw64-winpthreads-static
     ;;
   pacman)
     pacman -Sy --noconfirm clang gcc gdb
@@ -115,4 +115,8 @@ init_setup
 install_neovim
 install_lazygit
 install_languages
+
+git config --global user.email "acbsur1@gmail.com"
+git config --global user.name "ch0pex"
+
 echo "--------------------- Setup complete! ------------------------------"
