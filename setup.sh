@@ -116,7 +116,9 @@ install_neovim
 install_lazygit
 install_languages
 
+echo "--------------------- Git config ------------------------------"
 git config --global user.email "acbsur1@gmail.com"
 git config --global user.name "ch0pex"
+git config --global credential.helper store
 
 echo "--------------------- Setup complete! ------------------------------"
