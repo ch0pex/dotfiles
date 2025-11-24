@@ -24,10 +24,10 @@ install_packages() {
   case "$PKG_MANAGER" in
   apt)
     apt update
-    apt install -y python3 ninja-build cmake ripgrep unzip curl git build-essential gettext lua5.1 fish wget tar
+    apt install -y python3 ninja-build cmake ripgrep unzip curl git build-essential gettext lua5.1 fish wget tar pipx
     ;;
   dnf | yum)
-    $PKG_MANAGER install -y python3 ninja-build cmake ripgrep unzip curl git make gettext lua fish wget tar tmux
+    $PKG_MANAGER install -y python3 ninja-build cmake ripgrep unzip curl git make gettext lua fish wget tar tmux pipx
     ;;
 
   pacman)
@@ -115,6 +115,12 @@ init_setup
 install_neovim
 install_lazygit
 install_languages
+
+echo "--------------------- Conan install ------------------------------"
+pipx ensurepath
+pipx install conan
+source $HOME/.bashrc
+conan profile detect
 
 echo "--------------------- Git config ------------------------------"
 git config --global user.email "acbsur1@gmail.com"
