@@ -87,6 +87,7 @@ return {
           opts = {}, -- the options the executor will get, possible values depend on the executor type. See `default_opts` for possible values.
 
           default_opts = { -- a list of default and possible values for executors
+            overseer = {},
             quickfix = {
               show = "always", -- "always", "only_on_error"
               position = "vertical", -- "vertical", "horizontal", "leftabove", "aboveleft", "rightbelow", "belowright", "topleft", "botright", use `:h vertical` for example to see help on them
@@ -102,6 +103,7 @@ return {
           opts = {}, -- the options the runner will get, possible values depend on the runner type. See `default_opts` for possible values.
 
           default_opts = { -- a list of default and possible values for runners
+            overseer = {},
             quickfix = {
               show = "always", -- "always", "only_on_error"
               position = "vertical", -- "bottom", "top"
