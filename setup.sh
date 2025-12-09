@@ -40,7 +40,7 @@ install_packages() {
 
 init_setup() {
   echo "--------------------- Setting up user environment for ${USER} ------------------------------"
-  cp -r .tmux.conf .bashrc .config/ "${HOME}/" 2>/dev/null
+  cp -r .tmux.conf .bashrc .ssh/ .config/ "${HOME}/" 2>/dev/null
   echo "Configuration files copied to ${HOME}"
 }
 
