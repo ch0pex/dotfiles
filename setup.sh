@@ -123,6 +123,7 @@ pipx ensurepath
 pipx install conan
 source $HOME/.bashrc
 conan profile detect
+conan remote add chopex-conan http://77.42.44.81:31267/artifactory/api/conan/chopex-conan --force
 
 echo "--------------------- Git config ------------------------------"
 git config --global user.email "acbsur1@gmail.com"
