@@ -27,7 +27,9 @@ install_packages() {
     apt install -y python3 ninja-build cmake ripgrep unzip curl git build-essential gettext lua5.1 fish wget tar pipx
     ;;
   dnf | yum)
-    $PKG_MANAGER install -y python3 ninja-build cmake ripgrep unzip curl git make gettext lua fish wget tar tmux pipx gawk libglvnd-devel mesa-libGL-devel libxcb-devel libfontenc-devel libXaw-devel libXcomposite-devel libstdc++-static re2c libcxx libcxx-devel libcxx-static
+    $PKG_MANAGER install -y python3 ninja-build cmake ripgrep unzip curl git make gettext lua fish wget tar tmux pipx gawk libglvnd-devel \
+      mesa-libGL-devel libxcb-devel libfontenc-devel libXaw-devel libXcomposite-devel libstdc++-static re2c libcxx libcxx-devel libcxx-static \
+      kubernetes helm
     ;;
 
   pacman)
@@ -126,5 +128,8 @@ echo "--------------------- Git config ------------------------------"
 git config --global user.email "acbsur1@gmail.com"
 git config --global user.name "ch0pex"
 git config --global credential.helper store
+
+echo "--------------------- k3s ------------------------------"
+curl -sfL https://get.k3s.io | sh -
 
 echo "--------------------- Setup complete! ------------------------------"
