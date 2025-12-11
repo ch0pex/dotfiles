@@ -45,7 +45,8 @@ install_packages() {
       libxkbfile-devel libXrandr-devel libXres-devel libXScrnSaver-devel \
       xcb-util-wm-devel xcb-util-image-devel xcb-util-keysyms-devel \
       xcb-util-renderutil-devel libXdamage-devel libXxf86vm-devel \
-      libXv-devel xcb-util-devel xcb-util-cursor-devel
+      libXv-devel xcb-util-devel xcb-util-cursor-devel \
+      xorg-x11-server-Xvfb mesa-dri-drivers libXcursor libXrandr libXinerama parted libXi xorg-x11-xauth
     ;;
   pacman)
 
