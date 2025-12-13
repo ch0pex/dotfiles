@@ -46,7 +46,7 @@ install_packages() {
       xcb-util-wm-devel xcb-util-image-devel xcb-util-keysyms-devel \
       xcb-util-renderutil-devel libXdamage-devel libXxf86vm-devel \
       libXv-devel xcb-util-devel xcb-util-cursor-devel libasan libasan-static libubsan libtsan \
-      xorg-x11-server-Xvfb mesa-dri-drivers libXcursor libXrandr libXinerama parted libXi xorg-x11-xauth
+      xorg-x11-server-Xvfb mesa-dri-drivers libXcursor libXrandr libXinerama parted libXi xorg-x11-xauth valgrind
     ;;
   pacman)
 
@@ -107,7 +107,7 @@ install_languages() {
     ;;
   dnf | yum)
 
-    $PKG_MANAGER install -y clang gcc gcc-c++ gdb mingw64-gcc mingw64-gcc-c++ mingw64-winpthreads-static
+    $PKG_MANAGER install -y clang gcc gcc-c++ gdb mingw64-gcc mingw64-gcc-c++ mingw64-winpthreads-static clang-format
     ;;
   pacman)
     pacman -Sy --noconfirm clang gcc gdb
