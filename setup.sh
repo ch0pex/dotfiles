@@ -167,6 +167,19 @@ install_k3s() {
   curl -sfL https://get.k3s.io | sh -
 }
 
+install_slang() {
+  echo "--------------------- Slang install ------------------------------"
+
+  mkdir slang_tmp && cd slang_tmp
+  wget https://github.com/shader-slang/slang/releases/download/v2025.24.2/slang-2025.24.2-linux-x86_64.tar.gz
+  tar -xvf slang-2025.24.2-linux-x86_64.tar.gz
+  mv bin/slangc /usr/local/bin/
+  mv bin/slangd /usr/local/bin/
+  cp -a lib/* /usr/lib64/
+  cd ..
+  rm -rf slang_tmp
+}
+
 show_help() {
 
   echo "Usage: ./setup.sh <command> [user]"
@@ -202,6 +215,7 @@ full)
   install_conan
   install_git
   install_k3s
+  install_slang
   echo "--------------------- Full Setup Complete! ------------------------------"
   ;;
 
@@ -225,10 +239,12 @@ install_conan)
   ;;
 install_git)
   install_git
-
   ;;
 install_k3s)
   install_k3s
+  ;;
+install_slang)
+  install_slang
   ;;
 help | *)
   show_help
