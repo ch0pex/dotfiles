@@ -44,7 +44,8 @@ install_packages() {
       libXcursor-devel libXdmcp-devel libXtst-devel libXinerama-devel \
       libxkbfile-devel libXrandr-devel libXres-devel libXScrnSaver-devel \
       xcb-util-wm-devel xcb-util-image-devel xcb-util-keysyms-devel \
-      xcb-util-renderutil-devel libXdamage-devel libXxf86vm-devel \
+      wayland-devel mesa-libGL \
+      libxkbcommon-x11 xcb-util-renderutil-devel libXdamage-devel libXxf86vm-devel \
       libXv-devel xcb-util-devel xcb-util-cursor-devel libasan libasan-static libubsan libtsan \
       xorg-x11-server-Xvfb mesa-dri-drivers libXcursor libXrandr libXinerama parted libXi xorg-x11-xauth valgrind
     ;;
