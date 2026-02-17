@@ -47,7 +47,8 @@ install_packages() {
       wayland-devel mesa-libGL \
       libxkbcommon-x11 xcb-util-renderutil-devel libXdamage-devel libXxf86vm-devel \
       libXv-devel xcb-util-devel xcb-util-cursor-devel libasan libasan-static libubsan libtsan \
-      xorg-x11-server-Xvfb mesa-dri-drivers libXcursor libXrandr libXinerama parted libXi xorg-x11-xauth valgrind
+      xorg-x11-server-Xvfb mesa-dri-drivers libXcursor libXrandr libXinerama parted libXi xorg-x11-xauth valgrind \
+      ccache
     ;;
   pacman)
 
